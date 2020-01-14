@@ -6,9 +6,10 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Fab from '@material-ui/core/Fab';
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
+
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
+import Player from './Player';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -25,6 +26,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const audioURL = "http://www.evidenceaudio.com/wp-content/uploads/2014/10/lyricslap.mp3"
+
 export default function BottakuriVoiceCard(data) {
   const classes = useStyles();
 
@@ -40,7 +43,7 @@ export default function BottakuriVoiceCard(data) {
           <GridList cellHeight={100} cols={6}>
             <GridListTile cols={2} style={{textAlign: "center"}}>
               <Fab color="primary" aria-label="start">
-                <PlayArrowIcon />
+                <Player audioURL={audioURL} />
               </Fab>
             </GridListTile>
             <GridListTile cols={4}>
