@@ -8,9 +8,9 @@ export default class Player extends React.Component {
         this.pauseAudio = this.pauseAudio.bind(this);
         this.playAudio = this.playAudio.bind(this);
         this.state = {
-        isPlaying: false,
-        song: "",
-        audio: new Audio(this.props.audioURL)
+            isPlaying: false,
+            song: "",
+            audio: new Audio(this.props.audioURL)
         };
     }
 
@@ -25,6 +25,7 @@ export default class Player extends React.Component {
 
         this.setState({ isPlaying: !this.state.isPlaying });
     }
+
     playAudio() {
         console.log("play");
         console.log(this);
@@ -34,9 +35,9 @@ export default class Player extends React.Component {
 
     render() {
         if (this.state.isPlaying) {
-        return <StopIcon onClick={this.pauseAudio} />;
+            return <StopIcon onClick={this.pauseAudio} />;
         } else {
-        return <PlayArrowIcon onClick={this.playAudio} />;
+            return <PlayArrowIcon onClick={this.playAudio} />;
         }
     }
-    }
+}
