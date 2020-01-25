@@ -8,9 +8,7 @@ export default function App() {
   return (
     <div>
       <Header />
-      {/* <InclementalSearch /> */}
       <BottakuriVoiceCardList />
-      {/* <TodoList /> */}
     </div>
   );
 }

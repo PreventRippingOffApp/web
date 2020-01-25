@@ -1,12 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-// import Header from './Header';
 import BottakuriVoiceCard from './BottakuriVoiceCard';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import Button from '@material-ui/core/Button';
 import { getData } from "../redux/actions";
-
 import { connect } from "react-redux";
 
 const useStyles = makeStyles(theme => ({
@@ -46,7 +43,7 @@ function BottakuriVoiceCardList(props) {
   return (
     <Container className={classes.cardGrid} maxWidth="md">
       <Grid container spacing={4}>
-        {props.voices.voices.voiceData.length !== 0 ?props.voices.voices.voiceData.map(voice => (
+        {props.voices.length !== 0 ?props.voices.map(voice => (
           <BottakuriVoiceCard {...{card: voice}} key={voice}/>
         )): <div />}
       </Grid>
@@ -54,7 +51,9 @@ function BottakuriVoiceCardList(props) {
   );
 }
 
-const mapStateToProps = voices => {
+const mapStateToProps = state => {
+  const voices = state.voices.voiceData
+  console.log(voices)
   return { voices };
 };
 export default connect(mapStateToProps, {getData})(BottakuriVoiceCardList);

@@ -3,6 +3,7 @@ import { GET_DATA } from "./actionTypes";
 export const getData = () => {
   return {
     type: GET_DATA,
+    // sample dataset
     data: [
       {
         id: 0,
