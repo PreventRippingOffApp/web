@@ -32,7 +32,7 @@ export default function BottakuriVoiceCard(data) {
   const classes = useStyles();
 
   return (
-    <Grid item key={data.card} xs={12} sm={6} md={4}>
+    <Grid item key={data.id} xs={12} sm={6} md={4}>
       <Card className={classes.card}>
         <CardMedia
           className={classes.cardMedia}
@@ -51,7 +51,7 @@ export default function BottakuriVoiceCard(data) {
                 YYYY/MM/DD
               </Typography>
               <Typography variant="h5" component="h2" style={{textAlign: "left"}}>
-                位置情報 {data.card}
+                位置情報 {data.id}
               </Typography>
               <Typography  style={{textAlign: "initial"}}>
                 位置情報位置情報位置情報位置情報位置情報位置情報

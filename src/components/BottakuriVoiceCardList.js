@@ -4,7 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import BottakuriVoiceCard from './BottakuriVoiceCard';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-// import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
+import { getData } from "../redux/actions";
 
 import { connect } from "react-redux";
 
@@ -36,30 +37,25 @@ const useStyles = makeStyles(theme => ({
 
 function BottakuriVoiceCardList(props) {
   const classes = useStyles();
-  const [values, setValues] = useState([]);
 
   useEffect(() => {
     // APIを叩く場合はここでやる
-    // setTimeout(() => setValues([1, 2, 3, 4, 5, 6, 7, 8, 9]), 3000);
-    setValues([1, 2, 3, 4, 5, 6, 7, 8, 9])
-    // dispatch(getData())
-  }, [values])
-
-  console.log(props);
+    setTimeout(() => props.getData(), 3000);
+  }, [])
 
   return (
     <Container className={classes.cardGrid} maxWidth="md">
+      <Button />
       <Grid container spacing={4}>
-        {values.length !== 0 ?values.map(value => (
-          <BottakuriVoiceCard {...{card: value}} key={value}/>
+        {props.voices.voices.voiceData.length !== 0 ?props.voices.voices.voiceData.map(voice => (
+          <BottakuriVoiceCard {...{card: voice}} key={voice}/>
         )): <div />}
       </Grid>
     </Container>
   );
 }
 
-const mapStateToProps = state => {
-  console.log("sdffg", state)
-  return { state };
+const mapStateToProps = voices => {
+  return { voices };
 };
-export default connect(mapStateToProps)(BottakuriVoiceCardList);
+export default connect(mapStateToProps, {getData})(BottakuriVoiceCardList);
