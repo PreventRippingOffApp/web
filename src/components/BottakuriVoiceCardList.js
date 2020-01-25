@@ -40,22 +40,21 @@ function BottakuriVoiceCardList(props) {
 
   useEffect(() => {
     // APIを叩く場合はここでやる
-    setTimeout(() => setValues([1, 2, 3, 4, 5, 6, 7, 8, 9]), 3000);
+    // setTimeout(() => setValues([1, 2, 3, 4, 5, 6, 7, 8, 9]), 3000);
+    setValues([1, 2, 3, 4, 5, 6, 7, 8, 9])
     // dispatch(getData())
   }, [values])
 
   console.log(props);
 
   return (
-    <main>
-      <Container className={classes.cardGrid} maxWidth="md">
-        <Grid container spacing={4}>
-          {values.length !== 0 ?values.map(value => (
-            <BottakuriVoiceCard {...{card: value}} key={value}/>
-          )): <div />}
-        </Grid>
-      </Container>
-    </main>
+    <Container className={classes.cardGrid} maxWidth="md">
+      <Grid container spacing={4}>
+        {values.length !== 0 ?values.map(value => (
+          <BottakuriVoiceCard {...{card: value}} key={value}/>
+        )): <div />}
+      </Grid>
+    </Container>
   );
 }
 
