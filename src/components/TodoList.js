@@ -1,12 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import Todo from "./Todo";
-import { getTodosByVisibilityFilter } from "../redux/selectors";
+// import { getTodosByVisibilityFilter } from "../redux/selectors";
 
+// todoをリスト表記する枠
 const TodoList = ({ todos }) => (
   <ul className="todo-list">
     {todos && todos.length
       ? todos.map((todo, index) => {
+        // ToDo に代入
           return <Todo key={`todo-${todo.id}`} todo={todo} />;
         })
       : "No todos, yay!"}
@@ -14,8 +16,7 @@ const TodoList = ({ todos }) => (
 );
 
 const mapStateToProps = state => {
-  const { visibilityFilter } = state;
-  const todos = getTodosByVisibilityFilter(state, visibilityFilter);
-  return { todos };
+  console.log(state)
+  return { state };
 };
 export default connect(mapStateToProps)(TodoList);
