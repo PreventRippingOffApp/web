@@ -1,10 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO, SET_FILTER, GET_DATA } from "./actionTypes";
-
-// export const toggleTodo = id => ({
-//   type: TOGGLE_TODO,
-//   payload: { id }
-// });
-
+import { GET_DATA } from "./actionTypes";
 
 export const getData = () => {
   return {

@@ -45,7 +45,6 @@ function BottakuriVoiceCardList(props) {
 
   return (
     <Container className={classes.cardGrid} maxWidth="md">
-      <Button />
       <Grid container spacing={4}>
         {props.voices.voices.voiceData.length !== 0 ?props.voices.voices.voiceData.map(voice => (
           <BottakuriVoiceCard {...{card: voice}} key={voice}/>

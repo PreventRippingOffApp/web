@@ -1,6 +1,7 @@
 import React from "react";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import StopIcon from "@material-ui/icons/Stop";
+import Fab from '@material-ui/core/Fab';
 
 export default class Player extends React.Component {
     constructor(props) {
@@ -35,9 +36,9 @@ export default class Player extends React.Component {
 
     render() {
         if (this.state.isPlaying) {
-            return <StopIcon onClick={this.pauseAudio} />;
+            return <Fab color="primary" aria-label="start" onClick={this.pauseAudio}><StopIcon /></Fab>;
         } else {
-            return <PlayArrowIcon onClick={this.playAudio} />;
+            return <Fab color="primary" aria-label="start" onClick={this.playAudio}><PlayArrowIcon /></Fab>;
         }
     }
 }

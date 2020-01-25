@@ -42,9 +42,7 @@ export default function BottakuriVoiceCard(data) {
         <CardContent className={classes.cardContent}>
           <GridList cellHeight={100} cols={6}>
             <GridListTile cols={2} style={{textAlign: "center"}}>
-              <Fab color="primary" aria-label="start">
-                <Player audioURL={audioURL} />
-              </Fab>
+              <Player audioURL={audioURL} />
             </GridListTile>
             <GridListTile cols={4}>
               <Typography>

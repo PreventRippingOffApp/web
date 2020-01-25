@@ -17,18 +17,18 @@ export default function Header() {
 
   return (
     <header>
-        <AppBar position="relative">
-          <Toolbar>
-            <Typography variant="h6" color="inherit" noWrap>
-              ぼったくりガードWEB
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <div className={classes.heroContent}>
-          <Container maxWidth="md">
-            <TextField id="outlined-search" label="検索" type="search" variant="outlined" fullWidth />
-          </Container>
-        </div>
-      </header>
+      <AppBar position="relative">
+        <Toolbar>
+          <Typography variant="h6" color="inherit" noWrap>
+            ぼったくりガードWEB
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <div className={classes.heroContent}>
+        <Container maxWidth="md">
+          <TextField id="outlined-search" label="検索" type="search" variant="outlined" fullWidth />
+        </Container>
+      </div>
+    </header>
   );
 }
