@@ -44,7 +44,7 @@ function BottakuriVoiceCardList(props) {
     <Container className={classes.cardGrid} maxWidth="md">
       <Grid container spacing={4}>
         {props.voices.length !== 0 ?props.voices.map(voice => (
-          <BottakuriVoiceCard {...{card: voice}} key={voice}/>
+          <BottakuriVoiceCard {...{card: voice}} key={voice.id}/>
         )): <div />}
       </Grid>
     </Container>
@@ -53,7 +53,6 @@ function BottakuriVoiceCardList(props) {
 
 const mapStateToProps = state => {
   const voices = state.voices.voiceData
-  console.log(voices)
   return { voices };
 };
 export default connect(mapStateToProps, {getData})(BottakuriVoiceCardList);
