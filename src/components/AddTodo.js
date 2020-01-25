@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addTodo } from "../redux/actions";
+import { addTodo, getData } from "../redux/actions";
 
 class AddTodo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { input: "" };
+    this.state = { input: "", data: [] };
   }
 
   updateInput = input => {
@@ -17,6 +17,14 @@ class AddTodo extends React.Component {
     this.setState({ input: "" });
   };
 
+  handleGetData = () => {
+    this.props.getData();
+    console.log(this)
+    // this.setState({ input: "" });
+  };
+
+
+
   render() {
     return (
       <div>
@@ -27,6 +35,9 @@ class AddTodo extends React.Component {
         <button className="add-todo" onClick={this.handleAddTodo}>
           Add Todo
         </button>
+        <button className="add-todo" onClick={this.handleGetData}>
+          Add data
+        </button>
       </div>
     );
   }
@@ -34,6 +45,6 @@ class AddTodo extends React.Component {
 
 export default connect(
   null,
-  { addTodo }
+  { addTodo, getData }
 )(AddTodo);
 // export default AddTodo;

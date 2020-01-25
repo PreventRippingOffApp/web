@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO, SET_FILTER } from "./actionTypes";
+import { ADD_TODO, TOGGLE_TODO, SET_FILTER, GET_DATA } from "./actionTypes";
 
 let nextTodoId = 0;
 
@@ -16,3 +16,51 @@ export const toggleTodo = id => ({
 });
 
 export const setFilter = filter => ({ type: SET_FILTER, payload: { filter } });
+
+export const getData = () => {
+  return {
+    type: GET_DATA,
+    data: [
+      {
+        id: 0,
+        date: 'YYYY/MM/DD',
+        position: {
+          name: 'timei',
+          longitude: 'ido',
+          latidude: 'keido'
+        },
+        url: ''
+      },
+      {
+        id: 1,
+        date: 'YYYY/MM/DD',
+        position: {
+          name: 'timei',
+          longitude: 'ido',
+          latidude: 'keido'
+        },
+        url: ''
+      },
+      {
+        id: 2,
+        date: 'YYYY/MM/DD',
+        position: {
+          name: 'timei',
+          longitude: 'ido',
+          latidude: 'keido'
+        },
+        url: ''
+      },
+      {
+        id: 3,
+        date: 'YYYY/MM/DD',
+        position: {
+          name: 'timei',
+          longitude: 'ido',
+          latidude: 'keido'
+        },
+        url: ''
+      }
+    ]
+  }
+}
