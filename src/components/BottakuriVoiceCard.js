@@ -5,8 +5,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Fab from '@material-ui/core/Fab';
-
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import Player from './Player';
@@ -32,7 +30,7 @@ export default function BottakuriVoiceCard(data) {
   const classes = useStyles();
 
   return (
-    <Grid item key={data.card} xs={12} sm={6} md={4}>
+    <Grid item key={data.id} xs={12} sm={6} md={4}>
       <Card className={classes.card}>
         <CardMedia
           className={classes.cardMedia}
@@ -42,16 +40,14 @@ export default function BottakuriVoiceCard(data) {
         <CardContent className={classes.cardContent}>
           <GridList cellHeight={100} cols={6}>
             <GridListTile cols={2} style={{textAlign: "center"}}>
-              <Fab color="primary" aria-label="start">
-                <Player audioURL={audioURL} />
-              </Fab>
+              <Player audioURL={audioURL} />
             </GridListTile>
             <GridListTile cols={4}>
               <Typography>
                 YYYY/MM/DD
               </Typography>
               <Typography variant="h5" component="h2" style={{textAlign: "left"}}>
-                位置情報 {data.card}
+                位置情報 {data.card.id}
               </Typography>
               <Typography  style={{textAlign: "initial"}}>
                 位置情報位置情報位置情報位置情報位置情報位置情報

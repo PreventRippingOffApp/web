@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Header from './Header';
 import BottakuriVoiceCard from './BottakuriVoiceCard';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
+import { getData } from "../redux/actions";
+import { connect } from "react-redux";
 
 const useStyles = makeStyles(theme => ({
   heroContent: {
@@ -31,30 +32,27 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-// const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-export default function App() {
+function BottakuriVoiceCardList(props) {
   const classes = useStyles();
-  const [values, setValues] = useState([]);
 
   useEffect(() => {
     // APIを叩く場合はここでやる
-    setTimeout(() => setValues([1, 2, 3, 4, 5, 6, 7, 8, 9]), 3000); 
-  }, [values])
+    setTimeout(() => props.getData(), 3000);
+  }, [])
 
   return (
-    <React.Fragment>
-      <Header />
-      <main>
-        <Container className={classes.cardGrid} maxWidth="md">
-
-          <Grid container spacing={4}>
-            {values.length !== 0 ?values.map(value => (
-              <BottakuriVoiceCard {...{card: value}} key={value}/>
-            )): <div />}
-          </Grid>
-        </Container>
-      </main>
-    </React.Fragment>
+    <Container className={classes.cardGrid} maxWidth="md">
+      <Grid container spacing={4}>
+        {props.voices.length !== 0 ?props.voices.map(voice => (
+          <BottakuriVoiceCard {...{card: voice}} key={voice.id}/>
+        )): <div />}
+      </Grid>
+    </Container>
   );
 }
+
+const mapStateToProps = state => {
+  const voices = state.voices.voiceData
+  return { voices };
+};
+export default connect(mapStateToProps, {getData})(BottakuriVoiceCardList);
