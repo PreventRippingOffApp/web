@@ -47,7 +47,7 @@ export default function BottakuriVoiceCard(data) {
                 YYYY/MM/DD
               </Typography>
               <Typography variant="h5" component="h2" style={{textAlign: "left"}}>
-                位置情報 {data.id}
+                位置情報 {data.card.id}
               </Typography>
               <Typography  style={{textAlign: "initial"}}>
                 位置情報位置情報位置情報位置情報位置情報位置情報
