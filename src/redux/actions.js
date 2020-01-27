@@ -1,5 +1,10 @@
-import { GET_DATA } from "./actionTypes";
+import { SEARCH_FORM_OPEN, GET_DATA } from "./actionTypes";
 
+export const handleSearchFormOpon = () => {
+  return {
+    type: SEARCH_FORM_OPEN
+  }
+}
 export const getData = () => {
   return {
     type: GET_DATA,

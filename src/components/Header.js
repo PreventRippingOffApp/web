@@ -5,6 +5,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
+import IconButton from '@material-ui/core/IconButton';
+import { handleSearchFormOpon } from "../redux/actions";
+import { connect } from "react-redux";
 
 const useStyles = makeStyles(theme => ({
   header: {
@@ -15,11 +18,15 @@ const useStyles = makeStyles(theme => ({
   grow: {
     flexGrow: 1,
   },
+  searchButton: {
+    flex: 1,
+    textAlign: 'right'
+  },
   title: {
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
-    },
+    // display: 'none',
+    // [theme.breakpoints.up('sm')]: {
+    //   display: 'block',
+    // },
   },
   search: {
     flexGrow: 1,
@@ -54,16 +61,27 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Header() {
+function Header(props) {
   const classes = useStyles();
-
+  console.log(props)
   return (
     <AppBar className={classes.header}>
       <Toolbar>
         <Typography className={classes.title} variant="h6" noWrap>
           ぼったくりガードWEB
         </Typography>
-        <div className={classes.search}>
+        <div className={classes.searchButton}>
+          <IconButton
+            onClick={props.handleSearchFormOpon}
+            aria-label="account of current user"
+            aria-controls="primary-search-account-menu"
+            aria-haspopup="true"
+            color="inherit"
+          >
+            <SearchIcon />
+          </IconButton>
+        </div>
+        {/* <div className={classes.search}>
           <div className={classes.searchIcon}>
             <SearchIcon />
           </div>
@@ -76,8 +94,15 @@ export default function Header() {
             inputProps={{ 'aria-label': 'search' }}
             style={{width: "100%"}}
           />
-        </div>
+        </div> */}
       </Toolbar>
     </AppBar>
   );
 }
+
+
+const mapStateToProps = state => {
+  const osearchFormOpen = state.visibility.searchForm
+  return { osearchFormOpen };
+};
+export default connect(mapStateToProps, {handleSearchFormOpon})(Header);
