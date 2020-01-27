@@ -9,7 +9,7 @@ export default function(state = initialState, action) {
         case SEARCH_FORM_OPEN:
             return {
                 ...state,
-                searchForm: true
+                searchForm: action.searchForm
             }
         default:
             return state

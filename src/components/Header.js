@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import IconButton from '@material-ui/core/IconButton';
-import { handleSearchFormOpon } from "../redux/actions";
+import { handleSearchFormOpen } from "../redux/actions";
 import { connect } from "react-redux";
 
 const useStyles = makeStyles(theme => ({
@@ -23,10 +23,12 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'right'
   },
   title: {
-    // display: 'none',
-    // [theme.breakpoints.up('sm')]: {
-    //   display: 'block',
-    // },
+    display: 'block',
+  },
+  noTitle: {
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
   },
   search: {
     flexGrow: 1,
@@ -59,6 +61,9 @@ const useStyles = makeStyles(theme => ({
   inputInput: {
     padding: theme.spacing(1, 1, 1, 7),
   },
+  noDisplay: {
+    display: 'none'
+  }
 }));
 
 function Header(props) {
@@ -67,12 +72,12 @@ function Header(props) {
   return (
     <AppBar className={classes.header}>
       <Toolbar>
-        <Typography className={classes.title} variant="h6" noWrap>
+        <Typography className={props.searchFormOpen ? classes.noTitle : classes.title} variant="h6" noWrap>
           ぼったくりガードWEB
         </Typography>
-        <div className={classes.searchButton}>
+        <div className={props.searchFormOpen ? classes.noDisplay : classes.searchButton}>
           <IconButton
-            onClick={props.handleSearchFormOpon}
+            onClick={() => props.handleSearchFormOpen(props.searchFormOpen)}
             aria-label="account of current user"
             aria-controls="primary-search-account-menu"
             aria-haspopup="true"
@@ -81,7 +86,7 @@ function Header(props) {
             <SearchIcon />
           </IconButton>
         </div>
-        {/* <div className={classes.search}>
+        <div className={props.searchFormOpen ? classes.search : classes.noDisplay}>
           <div className={classes.searchIcon}>
             <SearchIcon />
           </div>
@@ -94,15 +99,15 @@ function Header(props) {
             inputProps={{ 'aria-label': 'search' }}
             style={{width: "100%"}}
           />
-        </div> */}
+        </div>
       </Toolbar>
     </AppBar>
   );
 }
 
-
 const mapStateToProps = state => {
-  const osearchFormOpen = state.visibility.searchForm
-  return { osearchFormOpen };
+  const searchFormOpen = state.visibility.searchForm
+  return { searchFormOpen };
 };
-export default connect(mapStateToProps, {handleSearchFormOpon})(Header);
+
+export default connect(mapStateToProps, {handleSearchFormOpen})(Header);

@@ -1,8 +1,9 @@
 import { SEARCH_FORM_OPEN, GET_DATA } from "./actionTypes";
 
-export const handleSearchFormOpon = () => {
+export const handleSearchFormOpen = (isOpen) => {
   return {
-    type: SEARCH_FORM_OPEN
+    type: SEARCH_FORM_OPEN,
+    searchForm: !isOpen
   }
 }
 export const getData = () => {
