@@ -51,11 +51,6 @@ const useStyles = makeStyles(theme => ({
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 7),
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: 200,
-    },
   },
 }));
 
@@ -63,28 +58,26 @@ export default function Header() {
   const classes = useStyles();
 
   return (
-    <div className={classes.header}>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography className={classes.title} variant="h6" noWrap>
-            ぼったくりガードWEB
-          </Typography>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-                grow: classes.grow
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
+    <AppBar className={classes.header}>
+      <Toolbar>
+        <Typography className={classes.title} variant="h6" noWrap>
+          ぼったくりガードWEB
+        </Typography>
+        <div className={classes.search}>
+          <div className={classes.searchIcon}>
+            <SearchIcon />
           </div>
-        </Toolbar>
-      </AppBar>
-    </div>
+          <InputBase
+            placeholder="Search…"
+            classes={{
+              root: classes.inputRoot,
+              input: classes.inputInput
+            }}
+            inputProps={{ 'aria-label': 'search' }}
+            style={{width: "100%"}}
+          />
+        </div>
+      </Toolbar>
+    </AppBar>
   );
 }
