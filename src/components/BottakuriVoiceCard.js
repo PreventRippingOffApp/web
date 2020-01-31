@@ -34,7 +34,7 @@ export default function BottakuriVoiceCard(data) {
       <Card className={classes.card}>
         <iframe src={src}></iframe>
         <CardContent className={classes.cardContent}>
-          <GridList cellHeight={100} cols={6}>
+          <GridList cellHeight={70} cols={6}>
             <GridListTile cols={2} style={{textAlign: "center"}}>
               <Player audioURL={data.url} />
             </GridListTile>
@@ -43,10 +43,7 @@ export default function BottakuriVoiceCard(data) {
                 {data.date}
               </Typography>
               <Typography variant="h5" component="h2" style={{textAlign: "left"}}>
-                位置情報 {data.id+1}
-              </Typography>
-              <Typography  style={{textAlign: "initial"}}>
-                {data.position.name}
+              {data.position.name}
               </Typography>
             </GridListTile>
           </GridList>
