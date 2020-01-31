@@ -24,20 +24,23 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const audioURL = "http://www.evidenceaudio.com/wp-content/uploads/2014/10/lyricslap.mp3"
+// const audioURL = "http://www.evidenceaudio.com/wp-content/uploads/2014/10/lyricslap.mp3"
 
 export default function BottakuriVoiceCard(data) {
   const classes = useStyles();
-  // console.log(data.card)
   data = data.card
+  console.log(data)
+  const src = "https://maps.google.co.jp/maps?output=embed&z=16&q=" + data.position.latitude + "," + data.position.longitude
+  console.log(src)
   return (
     <Grid item key={data.id} xs={12} sm={6} md={4}>
       <Card className={classes.card}>
-        <CardMedia
+        {/* <CardMedia
           className={classes.cardMedia}
           image="https://source.unsplash.com/random"
           title="Image title"
-        />
+        /> */}
+        <iframe src={src}></iframe>
         <CardContent className={classes.cardContent}>
           <GridList cellHeight={100} cols={6}>
             <GridListTile cols={2} style={{textAlign: "center"}}>
