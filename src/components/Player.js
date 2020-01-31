@@ -11,7 +11,7 @@ export default class Player extends React.Component {
         this.state = {
             isPlaying: false,
             song: "",
-            audio: new Audio(this.props.audioURL)
+            audio: new Audio("https://b.sechack.dev/" + this.props.audioURL)
         };
     }
 

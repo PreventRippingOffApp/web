@@ -21,8 +21,8 @@ function BottakuriVoiceCardList(props) {
 
   useEffect(() => {
     // APIを叩く場合はここでやる
-    setTimeout(() => props.getData(), 3000);
-  }, [])
+    setTimeout(() => props.getData(), 1000);
+  }, [ props])
 
   return (
     <Container className={classes.cardGrid} maxWidth="md">
