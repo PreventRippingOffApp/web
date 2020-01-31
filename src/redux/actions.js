@@ -7,8 +7,6 @@ export const handleSearchFormOpen = (isOpen) => {
     searchForm: !isOpen
   }
 }
-//export const fetchUsers = () => async(dispatch) => {
-
 
 export const getData = () => 
 {
@@ -16,7 +14,6 @@ export const getData = () =>
     axios
       .get("https://b.sechack.dev/sendAudioList")
       .then(res => {
-        // console.log(res.data.audioList)
         const data = res.data.audioList.map((d, i) => {
           return {
             id: i,
@@ -29,13 +26,11 @@ export const getData = () =>
             url: d.path,
               }
             })
-        // console.log(data)
         dispatch({
           type: GET_DATA,
           data: data
         })
       }).catch(err => {
-        // console.error(err)
         return {
           type: GET_DATA,
           data:[]
