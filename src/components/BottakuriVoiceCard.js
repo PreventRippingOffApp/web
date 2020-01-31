@@ -28,7 +28,8 @@ const audioURL = "http://www.evidenceaudio.com/wp-content/uploads/2014/10/lyrics
 
 export default function BottakuriVoiceCard(data) {
   const classes = useStyles();
-
+  // console.log(data.card)
+  data = data.card
   return (
     <Grid item key={data.id} xs={12} sm={6} md={4}>
       <Card className={classes.card}>
@@ -40,17 +41,17 @@ export default function BottakuriVoiceCard(data) {
         <CardContent className={classes.cardContent}>
           <GridList cellHeight={100} cols={6}>
             <GridListTile cols={2} style={{textAlign: "center"}}>
-              <Player audioURL={audioURL} />
+              <Player audioURL={data.url} />
             </GridListTile>
             <GridListTile cols={4}>
               <Typography>
-                YYYY/MM/DD
+                {data.date}
               </Typography>
               <Typography variant="h5" component="h2" style={{textAlign: "left"}}>
-                位置情報 {data.card.id}
+                位置情報 {data.id+1}
               </Typography>
               <Typography  style={{textAlign: "initial"}}>
-                位置情報位置情報位置情報位置情報位置情報位置情報
+                {data.position.name}
               </Typography>
             </GridListTile>
           </GridList>
@@ -59,3 +60,15 @@ export default function BottakuriVoiceCard(data) {
     </Grid>
   );
 }
+
+// return {
+//   id: i,
+//   date: d.time,
+//   position: {
+//     name: d.prefecture,
+//     longitude: d.location[0],
+//     latitude: d.location[1]
+//   },
+//   url: d.path,
+//     }
+//   })
